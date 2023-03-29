@@ -33,8 +33,7 @@ jobs:
           commit_info=`git describe --all --always --long`
           user_name=`git log -1 --pretty=format:'%an'`
           user_email=`git log -1 --pretty=format:'%ae'`
-          npm install
-          npm run build
+         
           cd docs/.vuepress/dist
           git config --global init.defaultBranch hp-pages
           git init
