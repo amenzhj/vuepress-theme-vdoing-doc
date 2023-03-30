@@ -1,3 +1,7 @@
 {
-  "compact": false
+  "compact": false,
+  "plugins": [
+    ""
+  ]
+
 }
