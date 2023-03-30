@@ -27,6 +27,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }} # 版本
           check-latest: true
+      - run: npm install
+      - run: npm run build
       - name: Archive production artifacts
         uses: actions/upload-artifact@v1
         with:
@@ -40,9 +42,6 @@ jobs:
           user_email=`git log -1 --pretty=format:'%ae'`
           deploy_branch=gh-pages
 
-          npm install
-          npm run build
-          
           cd docs/.vuepress/dist
           git config --global init.defaultBranch $deploy_branch
           git init
