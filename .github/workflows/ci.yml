@@ -28,7 +28,7 @@ jobs:
           node-version: ${{ matrix.node-version }} # 版本
           check-latest: true
       - run: npm install
-      - run: vuepress -v
+      - run: npm audit fix
       - run: vuepress build docs
       - name: Archive production artifacts
         if: always()
