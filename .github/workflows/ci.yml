@@ -51,4 +51,10 @@ jobs:
           git remote add origin ${remote_addr}
           git push origin HEAD:$deploy_branch --force # 推送到github $deploy_branch分支
 
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: npm_logs
+          path: /home/runner/.npm/_logs/
+
       # 只提交到github pages也可以使用github-pages-deploy-action，详见: https://github.com/JamesIves/github-pages-deploy-action
