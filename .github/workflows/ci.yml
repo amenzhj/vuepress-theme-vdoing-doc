@@ -27,11 +27,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }} # 版本
           check-latest: true
-      - name: Build-and-deploy # 步骤3
+      - name: Archive production artifacts
         uses: actions/upload-artifact@v1
         with:
           name: npm_logs
           path: /home/runner/.npm/_logs/
+      - name: Build-and-deploy # 步骤3
         run: |
           remote_addr=`git remote get-url --push origin`
           commit_info=`git describe --all --always --long`
